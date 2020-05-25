@@ -1,0 +1,45 @@
+
+
+* Use Pip to install third party library
+
+Sample
+
+windows: python -m pip install sqlalchemy
+mac:   pip install sqlalchemy
+
+
+----------------
+import mysql.connector as mysql
+db = mysql.connect(host = "localhost", user = "root", passwd = "fordham", database = "my_db" )
+cursor = db.cursor()
+cursor.execute("select * from aapl")
+tables = cursor.fetchall()
+tables
+for table in tables:
+    print(table)
+    
+--------
+from sqlalchemy import create_engine
+import pandas as pd
+
+engine = create_engine('mysql+pymysql://root:fordham@127.0.0.1:3306/my_db')
+engine = create_engine('mysql+pymysql://root:pass@localhost/my_db')
+
+con = engine.connect()
+
+ff= pd.read_sql_query('SELECT * FROM aapl', engine)
+
+ff= pd.read_sql_query('SELECT * FROM aapl', con)
+
+con.close()
+
+ff.to_sql('new_tt',con=engine, if_exists = 'append')
+
+----------
+import pyodbc
+engine= pyodbc.connect("DRIVER={MySQL ODBC 8.0 Unicode Driver}; SERVER=localhost; PORT=3306;DATABASE=my_db; UID=root; PASSWORD=fordham;")
+conn = engine.cursor()
+rows = conn.execute('Select * from aapl')
+
+for rw in rows:
+    print list(rw)

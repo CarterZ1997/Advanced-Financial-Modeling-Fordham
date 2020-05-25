@@ -1,0 +1,37 @@
+select * from my_table
+
+
+
+
+
+insert into my_table
+values ('2019-05-10','abc',105)
+
+
+
+
+
+select * from my_table a, my_table b
+
+where a.cusip = b.cusip
+
+
+
+
+select cusip as ddd from my_table
+
+
+select * 
+from my_table a
+inner join my_table b
+on a.cusip = b.cusip
+
+
+
+CREATE TABLE new_tbl 
+SELECT * FROM price_table;
+
+
+UPDATE final_table
+SET strike = 10, Type = 'asdf'
+WHERE Option_Cusip = 'Aaa'
