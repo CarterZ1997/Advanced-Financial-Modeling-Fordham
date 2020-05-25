@@ -1,2 +1,1 @@
-# Advanced-Financial-Modeling-Fordham
-Class in Fordham
+# Class in Fordham
